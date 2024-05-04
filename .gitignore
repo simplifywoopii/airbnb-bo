@@ -245,3 +245,4 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos,direnv,linux
+app/users/migrations/0*.py

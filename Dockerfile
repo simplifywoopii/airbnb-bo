@@ -7,12 +7,15 @@ COPY ./app /app
 RUN python -m venv /py &&\
     /py/bin/pip install --upgrade pip &&\
     /py/bin/pip install -r /tmp/requirements.txt &&\
+    source /py/bin/activate &&\
     rm -rf /tmp
-
 
 ENV PATH=$PATH:/py/bin
 
 WORKDIR /app
+
+RUN /py/bin/python manage.py makemigrations &&\
+    /py/bin/python manage.py migrate
 
 EXPOSE 8000
 
