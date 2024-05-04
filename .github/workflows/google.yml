@@ -53,8 +53,7 @@ jobs:
     steps:      
       - uses: actions/checkout@v4
         with:
-          repository: simplifywoopii/devops
-          # token: ${{ secrets.DEVOPS_GIT_TOKEN }}
+          repository: ${{ env.TARGET_REPOSITORY }}
           token: ${{ env.DEVOPS_GIT_TOKEN }}
       - uses: fjogeleit/yaml-update-action@main
         with:
@@ -64,5 +63,5 @@ jobs:
           message: 'ci: Update image tag to ${{ github.sha }}'
           commitChange: true
           branch: main
-          repository: simplifywoopii/devops
+          repository: ${{ env.TARGET_REPOSITORY }}
           token: ${{ env.DEVOPS_GIT_TOKEN }}
