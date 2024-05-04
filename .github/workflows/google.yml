@@ -54,7 +54,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: simplifywoopii/devops
-          token: $DEVOPS_GIT_TOKEN
+          token: ${{ secrets.DEVOPS_GIT_TOKEN }}
+          # token: ${{ env.DEVOPS_GIT_TOKEN }}
       - uses: fjogeleit/yaml-update-action@main
         with:
           valueFile: 'helm_chart/airbnb-bo/values.yaml'
