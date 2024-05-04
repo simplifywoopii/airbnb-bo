@@ -8,6 +8,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   CREDENTIALS: ${{ secrets.GKE_CREDENTIALS }}
   DEVOPS_GIT_TOKEN: ${{ secrets.DEVOPS_GIT_TOKEN }}
+  TARGET_REPOSITORY: ${{ vars.TARGET_REPOSITORY }}
   GAR_LOCATION: ${{ vars.GAR_LOCATION }}
   REPOSITORY: ${{ vars.REPOSITORY }}
   IMAGE: airbnb-bo
