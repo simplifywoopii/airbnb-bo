@@ -11,6 +11,8 @@ RUN python -m venv /py &&\
     rm -rf /tmp
 
 ENV PATH=$PATH:/py/bin
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
