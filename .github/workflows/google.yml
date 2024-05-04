@@ -53,7 +53,7 @@ jobs:
     steps:      
       - uses: actions/checkout@v4
         with:
-          repository: $TARGET_REPOSITORY
+          repository: simplifywoopii/demo-helm
           token: $DEVOPS_GIT_TOKEN
       - uses: fjogeleit/yaml-update-action@main
         with:
