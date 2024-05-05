@@ -17,8 +17,8 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-RUN /py/bin/python manage.py makemigrations &&\
-    /py/bin/python manage.py migrate
+# RUN /py/bin/python manage.py makemigrations &&\
+#     /py/bin/python manage.py migrate
 
 EXPOSE 8000
 
