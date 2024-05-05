@@ -38,6 +38,18 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    class GenderChoices(models.TextChoices):
+        MALE = ("male", "Male")
+        FEMALE = ("female", "Female")
+
+    class LanguageChoices(models.TextChoices):
+        KR = ("kr", "Korean")
+        EN = ("en", "English")
+
+    class CurrencyChoices(models.TextChoices):
+        WON = "won", "Korean Won"
+        USD = "usd", "Dollar"
+
     email = models.EmailField(_("email address"), unique=True)
     username = models.CharField(
         _("username"),
@@ -61,6 +73,27 @@ class User(AbstractBaseUser, PermissionsMixin):
         ),
     )
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
+
+    avatar = models.URLField(blank=True)
+    is_host = models.BooleanField(default=False)
+    name = models.CharField(
+        max_length=150,
+        default="",
+    )
+    gender = models.CharField(
+        max_length=10,
+        choices=GenderChoices.choices,
+    )
+
+    language = models.CharField(
+        max_length=2,
+        choices=LanguageChoices.choices,
+    )
+
+    currency = models.CharField(
+        max_length=5,
+        choices=CurrencyChoices.choices,
+    )
 
     objects = UserManager()
     USERNAME_FIELD = "email"

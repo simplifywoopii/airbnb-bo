@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: airbnb-server-dev
+  namespace: airbnb-dev
+spec:
+  domains:
+  - airbnb.dev.simplifywoopii.com
