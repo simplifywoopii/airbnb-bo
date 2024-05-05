@@ -13,7 +13,7 @@ RUN python -m venv /py &&\
 ENV PATH=$PATH:/py/bin
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE=config.settings.local
+# ENV DJANGO_SETTINGS_MODULE=config.settings.local
 
 WORKDIR /app
 
@@ -24,3 +24,4 @@ EXPOSE 8000
 
 # cmd
 CMD [ "/py/bin/python", "manage.py", "runserver", "0.0.0.0:8000"]
+# CMD [ "/py/bin/gunicorn", "--bind", "unix:/tmp/gunicorn.sock", "config.wsgi:application" ]
